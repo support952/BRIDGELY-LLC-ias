@@ -101,6 +101,22 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
+/* ── Continuous marquee (testimonials carousel) ──────── */
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.marquee-track {
+  animation: marquee-x 80s linear infinite;
+  will-change: transform;
+}
+.marquee-pause-on-hover:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
 /* ── Shadcn theme tokens ─────────────────────────────── */
 @theme inline {
   --font-heading: var(--font-sans);

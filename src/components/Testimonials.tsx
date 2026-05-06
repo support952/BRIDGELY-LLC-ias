@@ -9,51 +9,54 @@ const testimonials = [
     quote:
       "The IAS team transformed our E-2 visa journey from overwhelming to seamless. Their strategic approach and attention to detail gave us the confidence to make the leap to the United States.",
     name: "David Cohen",
-    role: "CEO, TechBridge Solutions",
+    role: "Tech Entrepreneur",
   },
   {
     quote:
       "The business plan they crafted wasn't just for the visa — it became our actual roadmap. Within 18 months we exceeded every projection they helped us build.",
     name: "Sarah Mitchell",
-    role: "Founder, Bloom Hospitality",
+    role: "Boutique Hotel Owner",
   },
   {
     quote:
       "What sets them apart is genuine care for your success beyond the visa. They stayed involved through our launch, hiring, and first year of operations in the U.S.",
     name: "Michael Torres",
-    role: "Managing Director, Atlas Ventures",
+    role: "Real Estate Investor",
+  },
+  {
+    quote:
+      "I expected the EB-2 NIW process to be a maze of paperwork. Instead I got a team that knew exactly which evidence mattered and walked me through every step. The petition felt like mine — just sharper than I could have written.",
+    name: "Daniel Levy",
+    role: "Software Engineer",
+  },
+  {
+    quote:
+      "We had been planning the move for two years and didn't know where to start. IAS turned a vague dream into a real plan — financials, lease, vendor contracts, even consulate prep. Six months later we opened our doors in Miami.",
+    name: "Elena Rossi",
+    role: "Restaurant Owner",
+  },
+  {
+    quote:
+      "Patient, honest, and incredibly thorough. They asked questions I hadn't thought of, and that's what made the difference at the consulate. I never felt rushed or like just another file on a desk.",
+    name: "Amir Khan",
+    role: "Postdoctoral Researcher",
   },
 ];
 
 function TestimonialCard({
   testimonial,
-  index,
 }: {
   testimonial: (typeof testimonials)[0];
-  index: number;
 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
-
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 0.8,
-        delay: index * 0.15,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      whileHover={{
-        y: -6,
-        transition: { type: "spring", stiffness: 300, damping: 25 },
-      }}
-      className="group relative flex flex-col p-6 sm:p-8 md:p-10 rounded-xl
+    <div
+      className="group relative shrink-0 flex flex-col
+        w-[280px] sm:w-[360px] md:w-[420px]
+        p-6 sm:p-8 md:p-10 rounded-xl
         glass-bg backdrop-blur-xl
         border border-dark-border
-        hover:border-accent/10
-        transition-all duration-500"
+        hover:border-accent/15
+        transition-colors duration-500"
     >
       <div
         className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
@@ -88,13 +91,14 @@ function TestimonialCard({
           {testimonial.role}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function Testimonials() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const looped = [...testimonials, ...testimonials];
 
   return (
     <section className="py-16 sm:py-24 md:py-32 lg:py-40 bg-dark-card relative overflow-hidden">
@@ -106,13 +110,13 @@ export default function Testimonials() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 relative">
+      <div className="relative">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-10 sm:mb-16 md:mb-20"
+          className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 mb-10 sm:mb-16 md:mb-20"
         >
           <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.35em] text-accent mb-3 sm:mb-4">
             Client Stories
@@ -132,14 +136,30 @@ export default function Testimonials() {
           </AntiGravityText>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          {testimonials.map((testimonial, i) => (
-            <TestimonialCard
-              key={testimonial.name}
-              testimonial={testimonial}
-              index={i}
-            />
-          ))}
+        <div className="marquee-pause-on-hover relative">
+          <div className="marquee-track flex gap-4 sm:gap-6 w-max">
+            {looped.map((testimonial, i) => (
+              <TestimonialCard
+                key={`${testimonial.name}-${i}`}
+                testimonial={testimonial}
+              />
+            ))}
+          </div>
+
+          <div
+            className="absolute inset-y-0 left-0 w-12 sm:w-24 md:w-40 pointer-events-none z-10"
+            style={{
+              background:
+                "linear-gradient(to right, var(--color-dark-card) 0%, transparent 100%)",
+            }}
+          />
+          <div
+            className="absolute inset-y-0 right-0 w-12 sm:w-24 md:w-40 pointer-events-none z-10"
+            style={{
+              background:
+                "linear-gradient(to left, var(--color-dark-card) 0%, transparent 100%)",
+            }}
+          />
         </div>
       </div>
     </section>
