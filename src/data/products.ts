@@ -26,7 +26,7 @@ export const products: Product[] = [
   {
     id: "e2-full-blueprint",
     title: "Full E-2 Visa Blueprint",
-    price: 5000,
+    price: 25000,
     category: "Visa Strategy",
     tag: "Most Popular",
     description:
@@ -44,7 +44,7 @@ export const products: Product[] = [
   {
     id: "custom-business-plan",
     title: "Custom Business Plan",
-    price: 1000,
+    price: 8000,
     category: "Business Planning",
     tag: "Essential",
     description:
@@ -60,7 +60,7 @@ export const products: Product[] = [
   {
     id: "financial-projections",
     title: "Financial Projections",
-    price: 1000,
+    price: 4500,
     category: "Financial Services",
     tag: "Strategy",
     description:
@@ -76,7 +76,7 @@ export const products: Product[] = [
   {
     id: "financial-model-excel",
     title: "Financial Model Creation",
-    price: 1200,
+    price: 3000,
     category: "Financial Services",
     tag: "Premium",
     description:
@@ -109,7 +109,7 @@ export const products: Product[] = [
   {
     id: "cash-flow-analysis",
     title: "Cash Flow Analysis",
-    price: 300,
+    price: 1000,
     category: "Financial Services",
     tag: "Operations",
     description:
@@ -124,7 +124,7 @@ export const products: Product[] = [
   {
     id: "risk-compliance-review",
     title: "Risk & Compliance Review",
-    price: 300,
+    price: 750,
     category: "Corporate Setup",
     tag: "Operations",
     description:
@@ -154,7 +154,7 @@ export const products: Product[] = [
   {
     id: "family-doc-package",
     title: "Family & Personal Package",
-    price: 200,
+    price: 800,
     category: "Document Packages",
     tag: "Personal",
     description:
@@ -169,7 +169,7 @@ export const products: Product[] = [
   {
     id: "expedite-package",
     title: "Expedited Processing",
-    price: 600,
+    price: 1500,
     category: "Visa Strategy",
     tag: "Fast Track",
     description:
@@ -216,7 +216,7 @@ export const products: Product[] = [
   {
     id: "eb2-niw-petition",
     title: "EB-2 NIW Full Petition",
-    price: 6000,
+    price: 20000,
     category: "EB-2 / NIW",
     tag: "Premium",
     description:
@@ -234,7 +234,7 @@ export const products: Product[] = [
   {
     id: "eb2-niw-evidence",
     title: "NIW Evidence Package",
-    price: 2500,
+    price: 5000,
     category: "EB-2 / NIW",
     tag: "Strategy",
     description:
@@ -245,22 +245,6 @@ export const products: Product[] = [
       "Citation & publication review",
       "Impact statement drafting",
       "Supporting exhibits preparation",
-    ],
-  },
-  {
-    id: "eb2-employer-sponsored",
-    title: "EB-2 Employer Petition",
-    price: 3500,
-    category: "EB-2 / NIW",
-    tag: "Sponsored",
-    description:
-      "Strategic guidance for employer-sponsored EB-2 petitions, including PERM labor certification support and I-140 preparation.",
-    details: [
-      "PERM process guidance",
-      "Job requirement analysis",
-      "Prevailing wage research",
-      "I-140 petition strategy",
-      "Credential evaluation coordination",
     ],
   },
 ];

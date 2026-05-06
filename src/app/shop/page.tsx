@@ -158,7 +158,7 @@ export default function ShopPage() {
             Need Something Custom?
           </p>
           <h2 className="font-serif text-3xl md:text-4xl text-heading mb-4">
-            Let&apos;s Build Your Package
+            Let&apos;s Build Your Case
           </h2>
           <p className="text-body tracking-wide max-w-lg mx-auto mb-8">
             Every case is unique. Contact us for a tailored engagement
