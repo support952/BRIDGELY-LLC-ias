@@ -7,7 +7,7 @@ import AntiGravityText from "./AntiGravityText";
 const testimonials = [
   {
     quote:
-      "The IAS team transformed our E-2 visa journey from overwhelming to seamless. Their strategic approach and attention to detail gave us the confidence to make the leap to the United States.",
+      "Zack and the IAS team transformed our E-2 visa journey from overwhelming to seamless. His strategic approach and attention to detail gave us the confidence to make the leap to the United States.",
     name: "David Cohen",
     role: "Tech Entrepreneur",
   },
@@ -25,13 +25,13 @@ const testimonials = [
   },
   {
     quote:
-      "I expected the EB-2 NIW process to be a maze of paperwork. Instead I got a team that knew exactly which evidence mattered and walked me through every step. The petition felt like mine — just sharper than I could have written.",
+      "I expected the EB-2 NIW process to be a maze of paperwork. Instead I worked with James, who knew exactly which evidence mattered and walked me through every step. The petition felt like mine — just sharper than I could have written.",
     name: "Daniel Levy",
     role: "Software Engineer",
   },
   {
     quote:
-      "We had been planning the move for two years and didn't know where to start. IAS turned a vague dream into a real plan — financials, lease, vendor contracts, even consulate prep. Six months later we opened our doors in Miami.",
+      "We had been planning the move for two years and didn't know where to start. Mark turned a vague dream into a real plan — financials, lease, vendor contracts, even consulate prep. Six months later we opened our doors in Miami.",
     name: "Elena Rossi",
     role: "Restaurant Owner",
   },
