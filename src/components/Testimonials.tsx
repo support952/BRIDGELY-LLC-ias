@@ -25,7 +25,7 @@ const testimonials = [
   },
   {
     quote:
-      "I expected the EB-2 NIW process to be a maze of paperwork. Instead I worked with James, who knew exactly which evidence mattered and walked me through every step. The petition felt like mine — just sharper than I could have written.",
+      "I expected the EB-2 NIW process to be a maze of paperwork. Instead I worked with Scott, who knew exactly which evidence mattered and walked me through every step. The petition felt like mine — just sharper than I could have written.",
     name: "Daniel Levy",
     role: "Software Engineer",
   },

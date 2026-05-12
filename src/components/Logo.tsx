@@ -11,7 +11,7 @@ export default function Logo() {
         width={288}
         height={288}
         priority
-        className="shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-md"
+        className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-md"
       />
 
       <div className="flex flex-col leading-none">

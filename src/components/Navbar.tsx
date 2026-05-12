@@ -15,17 +15,37 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     let frame = 0;
+    let lastY = window.scrollY;
+
     const handleScroll = () => {
       if (frame) return;
       frame = window.requestAnimationFrame(() => {
-        const next = window.scrollY > 50;
-        setScrolled((prev) => (prev === next ? prev : next));
+        const y = window.scrollY;
+        const delta = y - lastY;
+
+        setScrolled((prev) => {
+          const next = y > 50;
+          return prev === next ? prev : next;
+        });
+
+        // Hide only after we're past the navbar height and the user
+        // scrolled down at least 8px (debounces tiny scroll jitter).
+        // Always show near the top.
+        setHidden((prev) => {
+          if (y < 80) return false;
+          if (delta > 8) return true;
+          if (delta < -8) return false;
+          return prev;
+        });
+
+        lastY = y;
         frame = 0;
       });
     };
@@ -81,9 +101,9 @@ export default function Navbar() {
     <>
       <motion.nav
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 bg-white border-b transition-all duration-500 ${
+        animate={{ y: hidden && !menuOpen ? -110 : 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 bg-white border-b transition-[border-color,box-shadow] duration-500 ${
           scrolled
             ? "border-dark-border shadow-sm"
             : "border-white/20 shadow-none"

@@ -2,184 +2,206 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import AntiGravityText from "./AntiGravityText";
 
 type Member = {
-  initials: string;
+  image: string;
   name: string;
-  tagline: string;
-  description: string;
+  role: string;
   languages: string;
-  bestFor: string;
-  match?: string[];
-  expertise?: string[];
-  location?: string;
-  highlights: string[];
+  description: string;
+  expertise: string[];
 };
 
+// NOTE: profile photos below are Unsplash placeholders chosen to roughly
+// match each person's name. Replace each `image` URL with a real headshot
+// when available — no other code changes needed.
 const team: Member[] = [
   {
-    initials: "MA",
-    name: "Mark Anderson",
-    tagline: "Patient, Supportive & Client-Focused",
-    description:
-      "Calm and reassuring communicator. Takes the time to explain every stage clearly so clients feel confident and supported from start to finish.",
-    languages: "English",
-    bestFor:
-      "Clients who value patience, personal guidance, and a comfortable communication experience.",
-    match: ["United Kingdom", "Germany", "Denmark", "Poland", "Ukraine", "Iceland"],
-    highlights: [
-      "Patient and understanding communication",
-      "Personalized attention",
-      "Clear step-by-step explanations",
-      "Supportive and solution-oriented",
-    ],
-  },
-  {
-    initials: "MC",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Mark Cross",
-    tagline: "Multilingual Communication Specialist",
-    description:
-      "Combines strong multilingual skills with a patient, professional approach. Creates a smooth, culturally sensitive experience for international clients.",
+    role: "Head of the Finance Department",
     languages: "English, Italian, Spanish, French, Portuguese",
-    bestFor:
-      "International clients who prefer communication in their native language.",
-    match: [
-      "France",
-      "Romania",
-      "Spanish-speaking",
-      "Italian-speaking",
-      "Portuguese-speaking",
-    ],
-    highlights: [
-      "Multilingual communication",
-      "Patient and professional guidance",
-      "Organized case management",
-      "Strong cultural understanding",
-    ],
-  },
-  {
-    initials: "NS",
-    name: "Nikki Smith",
-    tagline: "Fast-Paced, Efficient & Results-Driven",
     description:
-      "Highly efficient and organized. Keeps cases moving forward with momentum — a strong match for clients who are proactive and goal-oriented.",
-    languages: "English",
-    bestFor:
-      "Motivated clients who are responsive and ready to move forward quickly.",
-    match: ["Canada", "Norway", "Netherlands", "Australia"],
-    highlights: [
-      "Fast response times",
-      "Efficient case progression",
-      "Highly organized workflow",
-      "Clear and practical communication",
-    ],
-  },
-  {
-    initials: "ED",
-    name: "Emily Daren",
-    tagline: "Efficient, Focused & Multilingual",
-    description:
-      "Responsive and organized. Fluent in English and Russian, helping clients feel fully informed and comfortable at every stage of their case.",
-    languages: "English, Russian",
-    bestFor:
-      "Russian-speaking clients and those who value efficient, goal-oriented service.",
-    match: [
-      "Russian-speaking communities",
-      "Eastern Europe",
-      "Central Asia",
-      "Turkmenistan",
-    ],
-    highlights: [
-      "Fast and responsive communication",
-      "Efficient case management",
-      "Strong organizational skills",
-      "Native-level Russian support",
-    ],
-  },
-  {
-    initials: "SE",
-    name: "Scott Evans",
-    tagline: "Legal Strategy & Advanced Cases",
-    description:
-      "Prepares professionally structured cases with exceptional attention to detail. Analytical approach ensures every aspect is carefully reviewed.",
-    languages: "English, Written Russian",
-    bestFor:
-      "Clients with professional, business, or advanced immigration cases requiring strong legal preparation.",
+      "Leads the Finance Department and specializes in international financial coordination and multilingual client communication. His professional, organized approach helps clients navigate financial processes smoothly and confidently.",
     expertise: [
-      "EB-2 NIW Cases",
-      "Complex Immigration Filings",
-      "Legal Documentation Review",
-      "Immigration Department Communications",
-    ],
-    highlights: [
-      "Thorough legal preparation",
-      "Strategic guidance",
-      "Attention to detail",
-      "Professional case analysis",
+      "International financial coordination",
+      "Payment planning and account management",
+      "Multilingual client support",
+      "European and international clientele",
     ],
   },
   {
-    initials: "BC",
-    name: "Benjamin Christiansen",
-    tagline: "Account Management & Coordination",
-    description:
-      "Professional and organized account manager. Provides clear updates and efficient support with reliable, business-oriented communication.",
+    image:
+      "https://images.unsplash.com/photo-1463453091185-61582044d556?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Scott Evans",
+    role: "Head of Immigration Process Department",
     languages: "English",
-    bestFor:
-      "Clients seeking structured account support and professional coordination.",
-    location: "The Woodlands, Texas, USA",
-    highlights: [
+    description:
+      "Oversees the firm's immigration process operations and ensures that client cases are managed with professionalism, structure, and attention to detail.",
+    expertise: [
+      "Immigration process management",
+      "Case supervision and coordination",
+      "Advanced immigration guidance",
+      "Professional case strategy",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Mark Anderson",
+    role: "Senior Liaison Specialist & Head of the Business Department",
+    languages: "English",
+    description:
+      "Specialized in Non-Immigrant Processes (E-2 & Work Permits). Known for his patient, supportive, and client-focused communication style.",
+    expertise: [
+      "E-2 Investor Visas",
+      "Work Permit Applications",
+      "Non-Immigrant Visa Processes",
+      "Personalized client support",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Zack Robbins",
+    role: "Senior Liaison Specialist",
+    languages: "English",
+    description:
+      "Specialized in Non-Immigrant Processes (E-2 & Work Permits). Recognized for his calm, patient, and attentive approach to client communication.",
+    expertise: [
+      "E-2 Investor Visas",
+      "Work Permit Applications",
+      "Non-Immigrant Visa Processes",
+      "International client support",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Nikki Smith",
+    role: "Senior Consultant",
+    languages: "English",
+    description:
+      "A fast-paced, highly efficient consultant who specializes in helping serious and motivated clients move through the immigration process quickly and effectively.",
+    expertise: [
+      "Fast-paced case progression",
+      "Professional consultation services",
+      "Client coordination and communication",
+      "Efficient workflow management",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Christine Williames",
+    role: "Senior Consultant & Head of the Middle East Department",
+    languages: "English",
+    description:
+      "Leads the Middle East Department and works closely with clients across the region — bringing department-level oversight and personalized guidance to every case.",
+    expertise: [
+      "Middle Eastern clientele",
+      "International immigration consulting",
+      "Department leadership",
+      "Personalized immigration guidance",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Emily Daren",
+    role: "Senior Consultant — Business Department",
+    languages: "English, Russian",
+    description:
+      "Specializes in business immigration support and works extensively with clients from Eastern Europe. Fluent communication in English and Russian throughout the case.",
+    expertise: [
+      "Eastern European clientele",
+      "Business immigration support",
+      "Russian-speaking clients",
+      "Efficient case management",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Stacy Wells",
+    role: "Senior Consultant",
+    languages: "English",
+    description:
+      "Provides professional immigration consulting and dedicated client support — focused, organized, and reliably responsive throughout every stage of the case.",
+    expertise: [
+      "Immigration consulting",
+      "Personalized client support",
+      "Case coordination",
       "Professional communication",
-      "Reliable account support",
-      "Organized coordination",
-      "Prompt assistance",
     ],
   },
   {
-    initials: "JM",
-    name: "James Miller",
-    tagline: "Client Support & Onboarding",
-    description:
-      "Creates a smooth, stress-free onboarding experience. Assists with document uploads, technical guidance, and general client support.",
+    image:
+      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Caroline Hansen",
+    role: "Consultant — Western Europe & North America Department",
     languages: "English",
-    bestFor: "New clients, onboarding support, and operational assistance.",
-    highlights: [
-      "Friendly communication",
-      "Quick assistance",
-      "Smooth onboarding experience",
-      "Helpful technical support",
+    description:
+      "Works closely with clients from Western Europe and North America, providing thoughtful immigration consulting and clear international case coordination.",
+    expertise: [
+      "Western European clientele",
+      "North American clientele",
+      "Immigration consulting",
+      "International case coordination",
     ],
   },
   {
-    initials: "Z",
-    name: "Zack",
-    tagline: "Patient, Attentive & Client-Oriented",
+    image:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Luna Bordovsky",
+    role: "Consultant — Eastern Europe Department",
+    languages: "English, Russian",
     description:
-      "Patient and attentive in every interaction. Takes the time to understand each client's situation and creates a comfortable, supportive experience.",
-    languages: "English",
-    bestFor:
-      "Clients who value patience, careful communication, and personalized support.",
-    highlights: [
-      "Patient communication",
-      "Supportive attitude",
-      "Personalized assistance",
-      "Calm and professional guidance",
+      "Specializes in assisting clients from Eastern Europe and Russian-speaking communities — combining cultural understanding with attentive case support.",
+    expertise: [
+      "Eastern European clientele",
+      "Russian-speaking clients",
+      "Immigration consulting",
+      "Client support and communication",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
+    name: "Richard Basil",
+    role: "Consultant — Middle East Department",
+    languages: "English, Arabic",
+    description:
+      "Works closely with clients from the Middle East and provides professional immigration guidance tailored to each client's goals — in both English and Arabic.",
+    expertise: [
+      "Middle Eastern clientele",
+      "Arabic-speaking clients",
+      "Immigration consulting",
+      "Personalized case coordination",
     ],
   },
 ];
 
 const whyChoose = [
-  "Personalized matching",
-  "Multilingual communication",
-  "International experience",
-  "Professional guidance",
-  "Responsive support",
-  "Dedicated case management",
-  "Clear and transparent",
+  "Multilingual international support",
+  "Personalized client matching",
+  "Dedicated immigration professionals",
+  "Strong legal and business expertise",
+  "Efficient and responsive communication",
+  "Professional case management",
+  "Global client experience",
 ];
 
-function TeamCard({ member, index }: { member: Member; index: number }) {
+function TeamCard({
+  member,
+  index,
+}: {
+  member: Member;
+  index: number;
+}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -190,14 +212,14 @@ function TeamCard({ member, index }: { member: Member; index: number }) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{
         duration: 0.7,
-        delay: (index % 4) * 0.1,
+        delay: (index % 4) * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
       whileHover={{ y: -4 }}
       className="group relative flex flex-col p-5 sm:p-6 rounded-xl
         glass-bg backdrop-blur-md
         border border-dark-border
-        hover:border-accent/15
+        hover:border-accent/20
         transition-colors duration-500"
     >
       <div
@@ -210,28 +232,25 @@ function TeamCard({ member, index }: { member: Member; index: number }) {
       />
 
       <div className="relative flex flex-col flex-1">
-        {/* Avatar + Name */}
-        <div className="flex items-center gap-3 mb-4">
-          <div
-            className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-serif text-accent text-base border border-accent/25"
-            style={{ backgroundColor: "var(--color-accent-subtle)" }}
-            aria-hidden
-          >
-            {member.initials}
-          </div>
-          <h3 className="font-serif text-lg sm:text-xl text-heading leading-tight">
-            {member.name}
-          </h3>
+        {/* Profile photo */}
+        <div className="relative mb-4 self-start w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border border-accent/20 shadow-[0_8px_20px_-8px_rgba(0,0,0,0.15)]">
+          <Image
+            src={member.image}
+            alt={member.name}
+            fill
+            sizes="(max-width: 640px) 80px, 96px"
+            className="object-cover"
+          />
         </div>
 
-        {/* Tagline */}
-        <p className="text-[10px] uppercase tracking-[0.22em] text-accent mb-4 leading-relaxed">
-          {member.tagline}
-        </p>
+        {/* Name */}
+        <h3 className="font-serif text-lg sm:text-xl text-heading leading-tight mb-2">
+          {member.name}
+        </h3>
 
-        {/* Description */}
-        <p className="text-body text-[13px] leading-[1.7] mb-5">
-          {member.description}
+        {/* Role */}
+        <p className="text-[10px] uppercase tracking-[0.18em] text-accent mb-4 leading-relaxed">
+          {member.role}
         </p>
 
         {/* Languages */}
@@ -244,77 +263,26 @@ function TeamCard({ member, index }: { member: Member; index: number }) {
           </p>
         </div>
 
-        {/* Best For */}
-        <div className="mb-5">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-body/70 mb-1">
-            Best For
-          </p>
-          <p className="text-body text-[12.5px] leading-[1.65] italic">
-            {member.bestFor}
-          </p>
-        </div>
+        {/* Description */}
+        <p className="text-body text-[13px] leading-[1.7] mb-5">
+          {member.description}
+        </p>
 
-        {/* Match / Expertise / Location */}
-        {member.match && (
-          <div className="mb-5">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-body/70 mb-2">
-              Ideal Client Match
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {member.match.map((country) => (
-                <span
-                  key={country}
-                  className="text-[11px] px-2.5 py-1 rounded-full border border-dark-border text-body bg-black/[0.02]"
-                >
-                  {country}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {member.expertise && (
-          <div className="mb-5">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-body/70 mb-2">
-              Areas of Expertise
-            </p>
-            <ul className="space-y-1">
-              {member.expertise.map((e) => (
-                <li
-                  key={e}
-                  className="text-[12px] text-body leading-snug pl-3 relative"
-                >
-                  <span className="absolute left-0 top-2 w-1 h-1 rounded-full bg-accent/50" />
-                  {e}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {member.location && (
-          <div className="mb-5">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-body/70 mb-1">
-              Based In
-            </p>
-            <p className="text-heading text-[13px] tracking-wide">
-              {member.location}
-            </p>
-          </div>
-        )}
-
-        {/* Highlights */}
+        {/* Expertise */}
         <div className="mt-auto pt-4 border-t border-dark-border">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-body/70 mb-2">
+            Areas of Expertise
+          </p>
           <ul className="space-y-1.5">
-            {member.highlights.map((h) => (
+            {member.expertise.map((e) => (
               <li
-                key={h}
+                key={e}
                 className="flex items-start gap-2 text-[12px] text-body leading-snug"
               >
                 <span className="text-accent shrink-0 mt-[3px] text-[11px]">
                   ✓
                 </span>
-                <span>{h}</span>
+                <span>{e}</span>
               </li>
             ))}
           </ul>
@@ -349,30 +317,32 @@ export default function Team() {
           transition={{ duration: 0.8 }}
           className="mb-10 sm:mb-14 md:mb-16 max-w-3xl"
         >
-          <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.35em] text-accent mb-3 sm:mb-4">
+          <p className="text-sm sm:text-base md:text-lg uppercase tracking-[0.25em] sm:tracking-[0.3em] font-medium text-accent mb-5 sm:mb-6">
             Meet Our Team
           </p>
           <AntiGravityText
             as="h2"
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-heading"
+            className="font-serif text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] leading-[1.05] text-heading"
           >
-            Expert Advisors
+            Specialists Across
           </AntiGravityText>
           <AntiGravityText
             as="h2"
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic font-light leading-[1.1] text-heading/70"
+            className="font-serif text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] italic font-light leading-[1.05] text-heading/70"
             delay={0.3}
           >
-            Matched to You
+            Every Department
           </AntiGravityText>
           <p className="text-body leading-[1.8] tracking-wide text-sm sm:text-[15px] mt-5 sm:mt-7 max-w-2xl">
-            Each representative brings unique strengths, communication styles,
-            and international experience — so every client is matched with the
-            right person for their needs and background.
+            Our international team is committed to delivering professional,
+            personalized, and results-driven immigration support to clients
+            worldwide. With specialists across legal, finance, business, and
+            regional immigration departments, we provide tailored guidance
+            designed to match each client&apos;s unique goals and background.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
           {team.map((member, i) => (
             <TeamCard key={member.name} member={member} index={i} />
           ))}
@@ -400,6 +370,7 @@ export default function Team() {
           </div>
         </motion.div>
       </div>
+
     </section>
   );
 }
