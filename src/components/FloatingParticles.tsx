@@ -38,20 +38,20 @@ const ParticleElement = memo(function ParticleElement({ particle }: { particle: 
           width: particle.size,
           height: particle.size,
           borderRadius: "50%",
-          backgroundColor: "rgba(255, 255, 255, 0.4)",
+          backgroundColor: "rgba(180, 83, 9, 0.9)",
         };
       case "ring":
         return {
           width: particle.size,
           height: particle.size,
           borderRadius: "50%",
-          border: "1px solid rgba(255, 255, 255, 0.1)",
+          border: "1px solid rgba(180, 83, 9, 0.45)",
         };
       case "line":
         return {
           width: 1,
           height: particle.size,
-          backgroundColor: "rgba(255, 255, 255, 0.08)",
+          backgroundColor: "rgba(180, 83, 9, 0.35)",
         };
     }
   }, [particle.shape, particle.size]);
