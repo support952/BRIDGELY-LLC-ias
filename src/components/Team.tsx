@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -6,7 +6,7 @@ import Image from "next/image";
 import AntiGravityText from "./AntiGravityText";
 
 type Member = {
-  image: string;
+  image?: string;
   name: string;
   role: string;
   languages: string;
@@ -14,13 +14,10 @@ type Member = {
   expertise: string[];
 };
 
-// NOTE: profile photos below are Unsplash placeholders chosen to roughly
-// match each person's name. Replace each `image` URL with a real headshot
-// when available — no other code changes needed.
+// To add real photos: set each member's `image` URL below and the card
+// will swap from the initials avatar to the photo automatically.
 const team: Member[] = [
   {
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Mark Cross",
     role: "Head of the Finance Department",
     languages: "English, Italian, Spanish, French, Portuguese",
@@ -34,8 +31,6 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1463453091185-61582044d556?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Scott Evans",
     role: "Head of Immigration Process Department",
     languages: "English",
@@ -49,8 +44,6 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Mark Anderson",
     role: "Senior Liaison Specialist & Head of the Business Department",
     languages: "English",
@@ -64,8 +57,6 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Zack Robbins",
     role: "Senior Liaison Specialist",
     languages: "English",
@@ -79,8 +70,6 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Nikki Smith",
     role: "Senior Consultant",
     languages: "English",
@@ -94,13 +83,11 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Christine Williames",
     role: "Senior Consultant & Head of the Middle East Department",
     languages: "English",
     description:
-      "Leads the Middle East Department and works closely with clients across the region — bringing department-level oversight and personalized guidance to every case.",
+      "Leads the Middle East Department and works closely with clients across the region â€” bringing department-level oversight and personalized guidance to every case.",
     expertise: [
       "Middle Eastern clientele",
       "International immigration consulting",
@@ -109,10 +96,8 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Emily Daren",
-    role: "Senior Consultant — Business Department",
+    role: "Senior Consultant â€” Business Department",
     languages: "English, Russian",
     description:
       "Specializes in business immigration support and works extensively with clients from Eastern Europe. Fluent communication in English and Russian throughout the case.",
@@ -124,13 +109,11 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Stacy Wells",
     role: "Senior Consultant",
     languages: "English",
     description:
-      "Provides professional immigration consulting and dedicated client support — focused, organized, and reliably responsive throughout every stage of the case.",
+      "Provides professional immigration consulting and dedicated client support â€” focused, organized, and reliably responsive throughout every stage of the case.",
     expertise: [
       "Immigration consulting",
       "Personalized client support",
@@ -139,10 +122,8 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Caroline Hansen",
-    role: "Consultant — Western Europe & North America Department",
+    role: "Consultant â€” Western Europe & North America Department",
     languages: "English",
     description:
       "Works closely with clients from Western Europe and North America, providing thoughtful immigration consulting and clear international case coordination.",
@@ -154,13 +135,11 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Luna Bordovsky",
-    role: "Consultant — Eastern Europe Department",
+    role: "Consultant â€” Eastern Europe Department",
     languages: "English, Russian",
     description:
-      "Specializes in assisting clients from Eastern Europe and Russian-speaking communities — combining cultural understanding with attentive case support.",
+      "Specializes in assisting clients from Eastern Europe and Russian-speaking communities â€” combining cultural understanding with attentive case support.",
     expertise: [
       "Eastern European clientele",
       "Russian-speaking clients",
@@ -169,13 +148,11 @@ const team: Member[] = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=85&fm=webp&auto=format&fit=crop&crop=faces&h=750",
     name: "Richard Basil",
-    role: "Consultant — Middle East Department",
+    role: "Consultant â€” Middle East Department",
     languages: "English, Arabic",
     description:
-      "Works closely with clients from the Middle East and provides professional immigration guidance tailored to each client's goals — in both English and Arabic.",
+      "Works closely with clients from the Middle East and provides professional immigration guidance tailored to each client's goals â€” in both English and Arabic.",
     expertise: [
       "Middle Eastern clientele",
       "Arabic-speaking clients",
@@ -232,15 +209,30 @@ function TeamCard({
       />
 
       <div className="relative flex flex-col flex-1">
-        {/* Profile photo */}
-        <div className="relative mb-4 self-start w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border border-accent/20 shadow-[0_8px_20px_-8px_rgba(0,0,0,0.15)]">
-          <Image
-            src={member.image}
-            alt={member.name}
-            fill
-            sizes="(max-width: 640px) 80px, 96px"
-            className="object-cover"
-          />
+        {/* Profile photo / initials fallback */}
+        <div className="relative mb-4 self-start w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border border-accent/25 shadow-[0_8px_20px_-8px_rgba(0,0,0,0.15)]">
+          {member.image ? (
+            <Image
+              src={member.image}
+              alt={member.name}
+              fill
+              sizes="(max-width: 640px) 80px, 96px"
+              className="object-cover"
+            />
+          ) : (
+            <div
+              className="w-full h-full flex items-center justify-center font-serif text-accent text-xl sm:text-2xl tracking-wide"
+              style={{ backgroundColor: "var(--color-accent-subtle)" }}
+              aria-hidden
+            >
+              {member.name
+                .split(/\s+/)
+                .map((w) => w[0])
+                .join("")
+                .slice(0, 2)
+                .toUpperCase()}
+            </div>
+          )}
         </div>
 
         {/* Name */}
@@ -280,7 +272,7 @@ function TeamCard({
                 className="flex items-start gap-2 text-[12px] text-body leading-snug"
               >
                 <span className="text-accent shrink-0 mt-[3px] text-[11px]">
-                  ✓
+                  âœ“
                 </span>
                 <span>{e}</span>
               </li>
@@ -363,7 +355,7 @@ export default function Team() {
                 key={item}
                 className="text-[12px] sm:text-[13px] text-body tracking-wide px-4 py-2 rounded-full border border-dark-border bg-black/[0.02]"
               >
-                <span className="text-accent mr-1.5">✓</span>
+                <span className="text-accent mr-1.5">âœ“</span>
                 {item}
               </span>
             ))}
