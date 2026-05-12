@@ -10,6 +10,7 @@ const Services = dynamic(() => import("@/components/Services"), { loading: () =>
 const StatsCounter = dynamic(() => import("@/components/StatsCounter"), { loading: () => <SectionSkeleton /> });
 const Process = dynamic(() => import("@/components/Process"), { loading: () => <SectionSkeleton /> });
 const PathSection = dynamic(() => import("@/components/PathSection"), { loading: () => <SectionSkeleton /> });
+const Team = dynamic(() => import("@/components/Team"), { loading: () => <SectionSkeleton /> });
 const Testimonials = dynamic(() => import("@/components/Testimonials"), { loading: () => <SectionSkeleton /> });
 const FAQ = dynamic(() => import("@/components/FAQ"), { loading: () => <SectionSkeleton /> });
 const CTA = dynamic(() => import("@/components/CTA"), { loading: () => <SectionSkeleton /> });
@@ -42,6 +43,8 @@ export default function Home() {
       <Process />
       <SectionDivider />
       <PathSection />
+      <SectionDivider />
+      <Team />
       <SectionDivider />
       <Testimonials />
       <SectionDivider />
