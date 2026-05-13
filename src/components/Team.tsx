@@ -87,7 +87,7 @@ const team: Member[] = [
     role: "Senior Consultant & Head of the Middle East Department",
     languages: "English",
     description:
-      "Leads the Middle East Department and works closely with clients across the region â€” bringing department-level oversight and personalized guidance to every case.",
+      "Leads the Middle East Department and works closely with clients across the region — bringing department-level oversight and personalized guidance to every case.",
     expertise: [
       "Middle Eastern clientele",
       "International immigration consulting",
@@ -97,7 +97,7 @@ const team: Member[] = [
   },
   {
     name: "Emily Daren",
-    role: "Senior Consultant â€” Business Department",
+    role: "Senior Consultant — Business Department",
     languages: "English, Russian",
     description:
       "Specializes in business immigration support and works extensively with clients from Eastern Europe. Fluent communication in English and Russian throughout the case.",
@@ -113,7 +113,7 @@ const team: Member[] = [
     role: "Senior Consultant",
     languages: "English",
     description:
-      "Provides professional immigration consulting and dedicated client support â€” focused, organized, and reliably responsive throughout every stage of the case.",
+      "Provides professional immigration consulting and dedicated client support — focused, organized, and reliably responsive throughout every stage of the case.",
     expertise: [
       "Immigration consulting",
       "Personalized client support",
@@ -123,7 +123,7 @@ const team: Member[] = [
   },
   {
     name: "Caroline Hansen",
-    role: "Consultant â€” Western Europe & North America Department",
+    role: "Consultant — Western Europe & North America Department",
     languages: "English",
     description:
       "Works closely with clients from Western Europe and North America, providing thoughtful immigration consulting and clear international case coordination.",
@@ -136,10 +136,10 @@ const team: Member[] = [
   },
   {
     name: "Luna Bordovsky",
-    role: "Consultant â€” Eastern Europe Department",
+    role: "Consultant — Eastern Europe Department",
     languages: "English, Russian",
     description:
-      "Specializes in assisting clients from Eastern Europe and Russian-speaking communities â€” combining cultural understanding with attentive case support.",
+      "Specializes in assisting clients from Eastern Europe and Russian-speaking communities — combining cultural understanding with attentive case support.",
     expertise: [
       "Eastern European clientele",
       "Russian-speaking clients",
@@ -149,10 +149,10 @@ const team: Member[] = [
   },
   {
     name: "Richard Basil",
-    role: "Consultant â€” Middle East Department",
+    role: "Consultant — Middle East Department",
     languages: "English, Arabic",
     description:
-      "Works closely with clients from the Middle East and provides professional immigration guidance tailored to each client's goals â€” in both English and Arabic.",
+      "Works closely with clients from the Middle East and provides professional immigration guidance tailored to each client's goals — in both English and Arabic.",
     expertise: [
       "Middle Eastern clientele",
       "Arabic-speaking clients",
@@ -272,7 +272,7 @@ function TeamCard({
                 className="flex items-start gap-2 text-[12px] text-body leading-snug"
               >
                 <span className="text-accent shrink-0 mt-[3px] text-[11px]">
-                  âœ“
+                  ✓
                 </span>
                 <span>{e}</span>
               </li>
@@ -355,7 +355,7 @@ export default function Team() {
                 key={item}
                 className="text-[12px] sm:text-[13px] text-body tracking-wide px-4 py-2 rounded-full border border-dark-border bg-black/[0.02]"
               >
-                <span className="text-accent mr-1.5">âœ“</span>
+                <span className="text-accent mr-1.5">✓</span>
                 {item}
               </span>
             ))}
