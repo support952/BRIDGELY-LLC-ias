@@ -77,7 +77,7 @@ function CheckoutContent() {
 
   return (
     <main className="min-h-screen bg-dark flex">
-      {/* Left â€” Order Summary */}
+      {/* Left — Order Summary */}
       <div
         className="hidden lg:flex lg:w-[45%] relative flex-col justify-between p-12 xl:p-16 force-dark"
         style={{
@@ -144,7 +144,7 @@ function CheckoutContent() {
         </div>
       </div>
 
-      {/* Right â€” Payment Form */}
+      {/* Right — Payment Form */}
       <div className="flex-1 flex items-center justify-center p-6 md:p-12 relative">
         <div
           className="absolute inset-0 pointer-events-none"
