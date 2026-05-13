@@ -16,9 +16,26 @@ export default function Footer() {
           </div>
         </div>
         <div className="h-px w-full bg-dark-border mb-6" />
-        <p className="text-[11px] tracking-[0.15em] text-body text-center">
-          &copy; {new Date().getFullYear()} Immigration Advice Service — Bridgely LLC. All rights reserved.
-        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+          <p className="text-[11px] tracking-[0.15em] text-body text-center sm:text-left">
+            &copy; {new Date().getFullYear()} Immigration Advice Service — Bridgely LLC. All rights reserved.
+          </p>
+          <nav aria-label="Legal" className="flex items-center gap-5">
+            <a
+              href="/privacy"
+              className="text-[11px] tracking-[0.15em] text-body hover:text-heading transition-colors duration-300"
+            >
+              Privacy Policy
+            </a>
+            <span className="text-body/40" aria-hidden>·</span>
+            <a
+              href="/terms"
+              className="text-[11px] tracking-[0.15em] text-body hover:text-heading transition-colors duration-300"
+            >
+              Terms of Service
+            </a>
+          </nav>
+        </div>
       </div>
     </footer>
   );
