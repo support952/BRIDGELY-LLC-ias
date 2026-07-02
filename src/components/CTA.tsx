@@ -11,7 +11,7 @@ export default function CTA() {
   const copiedRef = useRef<HTMLParagraphElement>(null);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText("info@bridgelyllc.com");
+    await navigator.clipboard.writeText("support@immigrationadviceservice.org");
     if (!copiedRef.current) return;
     copiedRef.current.textContent = "Email copied";
     window.setTimeout(() => {
@@ -63,7 +63,7 @@ export default function CTA() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4">
             <a
-              href="mailto:info@bridgelyllc.com"
+              href="mailto:support@immigrationadviceservice.org"
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent text-white text-[12px] sm:text-[13px] uppercase tracking-[0.2em] px-8 sm:px-10 py-3.5 sm:py-4 font-medium hover:bg-accent-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 transition-colors duration-300"
             >
               Schedule a Call
@@ -76,7 +76,7 @@ export default function CTA() {
               className="text-[12px] sm:text-[13px] uppercase tracking-[0.2em] text-body border-b border-dark-border pb-1 hover:text-heading hover:border-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 transition-all duration-300 cursor-pointer"
               title="Click to copy email address"
             >
-              info@bridgelyllc.com
+              support@immigrationadviceservice.org
             </button>
           </div>
           <p ref={copiedRef} className="text-[11px] tracking-wide text-body min-h-4" aria-live="polite" />
