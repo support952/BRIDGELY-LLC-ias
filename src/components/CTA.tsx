@@ -5,19 +5,12 @@ import { useRef } from "react";
 import AntiGravityText from "./AntiGravityText";
 import ContactForm from "./ContactForm";
 
+const CALENDLY_URL =
+  "https://calendly.com/support-ias/u-s-immigration-consultation-phone-call";
+
 export default function CTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const copiedRef = useRef<HTMLParagraphElement>(null);
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText("support@immigrationadviceservice.org");
-    if (!copiedRef.current) return;
-    copiedRef.current.textContent = "Email copied";
-    window.setTimeout(() => {
-      if (copiedRef.current) copiedRef.current.textContent = "";
-    }, 1800);
-  };
 
   return (
     <section id="contact" className="py-16 sm:py-24 md:py-32 lg:py-40 bg-dark-card relative overflow-hidden scroll-mt-28">
@@ -61,9 +54,11 @@ export default function CTA() {
             Every great venture begins with a conversation. Let&apos;s discuss
             your goals and chart the right visa pathway for you.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4">
+          <div className="flex justify-center mb-4">
             <a
-              href="mailto:support@immigrationadviceservice.org"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent text-white text-[12px] sm:text-[13px] uppercase tracking-[0.2em] px-8 sm:px-10 py-3.5 sm:py-4 font-medium hover:bg-accent-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 transition-colors duration-300"
             >
               Schedule a Call
@@ -71,15 +66,7 @@ export default function CTA() {
                 &rarr;
               </span>
             </a>
-            <button
-              onClick={handleCopy}
-              className="text-[12px] sm:text-[13px] uppercase tracking-[0.2em] text-body border-b border-dark-border pb-1 hover:text-heading hover:border-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 transition-all duration-300 cursor-pointer"
-              title="Click to copy email address"
-            >
-              support@immigrationadviceservice.org
-            </button>
           </div>
-          <p ref={copiedRef} className="text-[11px] tracking-wide text-body min-h-4" aria-live="polite" />
         </motion.div>
 
         <ContactForm />

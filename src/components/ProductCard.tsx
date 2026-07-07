@@ -5,6 +5,9 @@ import { useRef, useState } from "react";
 import type { Product } from "@/data/products";
 import ProductIllustration from "./ProductIllustration";
 
+const CALENDLY_URL =
+  "https://calendly.com/support-ias/u-s-immigration-consultation-phone-call";
+
 export default function ProductCard({
   product,
   index,
@@ -134,13 +137,15 @@ export default function ProductCard({
       <div className="p-4 sm:p-6 pt-0 mt-auto">
         <div className="h-px w-full bg-dark-border mb-4 sm:mb-5" />
         <a
-          href={`/checkout?service=${product.id}&price=${product.price}`}
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group/btn flex items-center justify-center gap-2 w-full py-3 sm:py-3.5
             border border-accent/25 text-accent text-[11px] sm:text-[12px] uppercase tracking-[0.2em]
             hover:bg-accent hover:text-white
             transition-all duration-300 rounded-sm"
         >
-          Select Service
+          Schedule a Call
           <span className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1">
             &rarr;
           </span>
