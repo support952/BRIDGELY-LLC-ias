@@ -34,6 +34,13 @@ export default function Footer() {
             >
               Terms of Service
             </a>
+            <span className="text-body/40" aria-hidden>·</span>
+            <a
+              href="/refund-policy"
+              className="text-[11px] tracking-[0.15em] text-body hover:text-heading transition-colors duration-300"
+            >
+              Refund Policy
+            </a>
           </nav>
         </div>
       </div>
